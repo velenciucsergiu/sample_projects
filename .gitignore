@@ -1,0 +1,8 @@
+*/terraform.tfstate.backup
+*/.terraform*
+*/terraform.tfstate
+*readme.txt
+*plan
+*.drawio
+api_lambda_serverless/env/dev.json
+eks_terraform/env/*

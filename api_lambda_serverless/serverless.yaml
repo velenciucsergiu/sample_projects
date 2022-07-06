@@ -1,0 +1,38 @@
+service: ${file(./env/${opt:stage, 'dev'}.json):service}
+
+provider:
+  name: aws
+  runtime: python3.8
+  deploymentBucket:
+    name: ${file(./env/${opt:stage, 'dev'}.json):bucket}
+    serverSideEncryption: aws:kms
+    blockPublicAccess: true
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "xray:PutTraceSegments"
+        - "xray:PutTelemetryRecords"
+      Resource:
+        - "*"
+
+
+plugins:
+  - serverless-wsgi
+  - serverless-deployment-bucket
+  - serverless-python-requirements
+  - serverless-plugin-tracing
+
+custom:
+  wsgi:
+    app: api.app
+  pythonRequirements:
+    dockerizePip: true
+    useDownloadCache: false
+
+functions:
+  api:
+    name: ${file(./env/${opt:stage, 'dev'}.json):function_name}
+    handler: wsgi_handler.handler
+    events:
+      - http: GET /greeting
+    tracing: true

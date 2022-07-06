@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "serverless-deployment-bucket": "^1.6.0",
+    "serverless-plugin-tracing": "^2.0.0",
+    "serverless-python-requirements": "^5.4.0",
+    "serverless-wsgi": "^3.0.0"
+  }
+}

@@ -1,0 +1,18 @@
+# Default values for logging.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  cwagent:
+    name: amazon/cloudwatch-agent
+    tag: 1.247352.0b251908
+  fluentbit:
+    name: public.ecr.aws/aws-observability/aws-for-fluent-bit
+    tag: stable
+
+roles:
+  cwagent_arn: 
+  fluent_bit_arn: 
+
+region:  
+cluster_name : 

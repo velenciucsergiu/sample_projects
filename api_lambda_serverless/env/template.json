@@ -1,0 +1,5 @@
+{
+    "service": "cft name",
+    "function_name": "greeting-function",
+    "bucket": "bucket name"
+}
